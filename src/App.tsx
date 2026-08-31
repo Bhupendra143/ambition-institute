@@ -1,68 +1,51 @@
-import './App.css'
-import VantaBackground from './components/VantaBackground';
+import DotBackground from "./components/DotBackground";
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from "./routes/AppRoutes.route";
 
 function App() {
   return (
-    <main className="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
-      <VantaBackground>
-      <section className="container mx-auto px-4 py-24">
-        <div className="max-w-3xl">
-          <p className="mb-4 font-medium text-[hsl(var(--primary))]">
-            AMBITION TECHNICAL INSTITUTE
-          </p>
-
-          <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl">
-            Learn Skills.
-            <br />
-            <span className="bg-[var(--gradient-primary)] bg-clip-text text-transparent">
-              Build Your Future.
-            </span>
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-lg text-[hsl(var(--muted-foreground))]">
-            Practical technical education designed to build
-            real-world skills and opportunities.
-          </p>
-
-          <div className="mt-8 flex gap-4">
-            <button
-              className="
-                rounded-xl
-                bg-[var(--gradient-primary)]
-                px-6 py-3
-                font-semibold
-                text-white
-                shadow-[var(--shadow-card)]
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                hover:shadow-[var(--shadow-card-hover)]
-              "
-            >
-              Explore Courses
-            </button>
-
-            <button
-              className="
-                rounded-xl
-                border
-                border-[hsl(var(--border))]
-                bg-[hsl(var(--card))]
-                px-6 py-3
-                font-semibold
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                hover:border-[hsl(var(--primary))]
-              "
-            >
-              Apply Now
-            </button>
-          </div>
+    <BrowserRouter>
+      <div style={{ position: "relative", minHeight: "100vh", background: "#0a0a0a" }}>
+        {/* Background Layer */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+          <DotBackground
+            mode="drift"
+            tracking="global"
+            interaction="repel"
+            background="#0a0a0a"
+            dotColor="#ffffff"
+            lineColor="#666666"
+            density={1.2}
+            speed={0.8}
+            dotSize={2}
+            linkDistance={140}
+            opacity={1}
+            alpha={1.4}
+            interactionRadius={140}
+            interactionStrength={18}
+            cursorEase={40}
+          />
         </div>
-      </section>
-      </VantaBackground>
-    </main>
+
+        {/* Dynamic Route Content */}
+        <div
+          style={{
+            position: "relative",
+            zIndex: 1,
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#ffffff",
+            textAlign: "center",
+            padding: "0 24px",
+          }}
+        >
+          <AppRoutes />
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
