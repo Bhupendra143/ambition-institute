@@ -22,7 +22,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full max-w-7xl mx-auto min-h-[90vh] flex flex-col lg:flex-row items-center justify-between gap-6 px-4 sm:px-8 overflow-hidden">
+    <section className="relative w-full max-w-7xl mx-auto min-h-[90vh] flex flex-col lg:flex-row items-center justify-between gap-6 px-4 sm:px-8 overflow-hidden ">
       {/* SVG ClipPath Definition (Curved boundary line) */}
       <svg className="absolute w-0 h-0" aria-hidden="true">
         <defs>
@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="flex-1 z-20 max-w-xl py-8 text-left"
+        className="flex-1 z-20 max-w-xl  text-left"
       >
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1] mb-6">
           Empowering Skills, <br />
