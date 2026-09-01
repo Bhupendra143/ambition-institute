@@ -6,7 +6,6 @@ function App() {
   return (
     <BrowserRouter>
       <div style={{ position: "relative", minHeight: "100vh", background: "#0a0a0a" }}>
-        {/* Background Layer */}
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
           <DotBackground
             mode="drift"
@@ -26,8 +25,6 @@ function App() {
             cursorEase={40}
           />
         </div>
-
-        {/* Dynamic Route Content */}
         <div
           style={{
             position: "relative",
