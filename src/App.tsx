@@ -1,7 +1,7 @@
 import DotBackground from "./components/DotBackground";
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from "./routes/AppRoutes.route";
-
+import Footer from "./components/layout/Footer";
 function App() {
   return (
     <BrowserRouter>
@@ -44,6 +44,7 @@ function App() {
         >
           <AppRoutes />
         </div>
+        <Footer />
       </div>
     </BrowserRouter>
   );
