@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, PlayCircle } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, PlayCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const IMAGES = [
   "https://ambition.com.np/wp-content/uploads/2025/03/Screenshot-2025-03-26-130410.png",
   "https://ambition.com.np/wp-content/uploads/2025/03/Screenshot-2025-03-26-130507.png",
   "https://ambition.com.np/wp-content/uploads/2025/03/Capture.png",
-  "https://ambition.com.np/wp-content/uploads/2025/03/Screenshot-2025-03-26-130439.png"
+  "https://ambition.com.np/wp-content/uploads/2025/03/Screenshot-2025-03-26-130439.png",
 ];
 
 const HeroSection: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -20,8 +22,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full max-w-7xl mx-auto min-h-[90vh] flex flex-col lg:flex-row items-center justify-between gap-6 px-4 sm:px-8 overflow-hidden">
-      
+    <section className="relative w-full max-w-7xl mx-auto min-h-[90vh] flex flex-col lg:flex-row items-center justify-between gap-6 px-4 sm:px-8 overflow-hidden ">
       {/* SVG ClipPath Definition (Curved boundary line) */}
       <svg className="absolute w-0 h-0" aria-hidden="true">
         <defs>
@@ -32,11 +33,11 @@ const HeroSection: React.FC = () => {
       </svg>
 
       {/* Left Column Content */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="flex-1 z-20 max-w-xl py-8 text-left"
+        className="flex-1 z-20 max-w-xl  text-left"
       >
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1] mb-6">
           Empowering Skills, <br />
@@ -47,7 +48,9 @@ const HeroSection: React.FC = () => {
         </h1>
 
         <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg">
-          Join ATI and take the next step towards a successful career. Quality education, practical training, and a supportive environment to help you achieve your goals.
+          Join ATI and take the next step towards a successful career. Quality
+          education, practical training, and a supportive environment to help
+          you achieve your goals.
         </p>
 
         <div className="flex flex-wrap items-center gap-4">
@@ -55,6 +58,7 @@ const HeroSection: React.FC = () => {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
             type="button"
+            onClick={() => navigate("/admission-form")}
             className="px-8 py-3.5 rounded-full font-semibold text-primary-foreground bg-gradient-primary shadow-glow flex items-center gap-2 cursor-pointer transition-all duration-300"
           >
             Admissions Open
@@ -67,7 +71,7 @@ const HeroSection: React.FC = () => {
             type="button"
             className="px-8 py-3.5 rounded-full font-medium text-foreground bg-secondary hover:bg-secondary/80 border border-border backdrop-blur-md transition-colors flex items-center gap-2 cursor-pointer"
           >
-            Learn More
+            Recent Updates
             <PlayCircle className="w-4 h-4 text-accent" />
           </motion.button>
         </div>
@@ -76,21 +80,20 @@ const HeroSection: React.FC = () => {
       {/* Right Column: Dynamic Masked Image Carousel */}
       <div className="w-full lg:w-[65%] h-[450px] sm:h-[550px] lg:h-[650px] absolute right-0 top-0 bottom-0 z-10 pointer-events-none lg:pointer-events-auto">
         <div className="relative w-full h-full overflow-hidden rounded-3xl">
-          
           {/* Subtle glow background */}
-          <motion.div 
+          <motion.div
             key={`glow-${currentImageIndex}`}
             initial={{ opacity: 0.2 }}
             animate={{ opacity: [0.2, 0.6, 0.3] }}
             transition={{ duration: 1.2 }}
             className="absolute inset-0 blur-md rounded-3xl bg-gradient-hero opacity-30"
-            style={{ clipPath: 'url(#customCurveClip)' }}
+            style={{ clipPath: "url(#customCurveClip)" }}
           />
 
           {/* Masked Image Frame */}
-          <div 
+          <div
             className="w-full h-full relative rounded-3xl overflow-hidden"
-            style={{ clipPath: 'url(#customCurveClip)' }}
+            style={{ clipPath: "url(#customCurveClip)" }}
           >
             <AnimatePresence initial={false}>
               <motion.img
@@ -104,14 +107,12 @@ const HeroSection: React.FC = () => {
                 className="absolute inset-0 w-full h-full object-cover object-center rounded-r-3xl"
               />
             </AnimatePresence>
-
-            {/* Note: Dark overlay gradient removed completely so image displays at 100% natural brightness */}
           </div>
 
           {/* Animated Curve Boundary Line */}
-          <svg 
-            className="absolute inset-0 w-full h-full pointer-events-none z-20" 
-            viewBox="0 0 100 100" 
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none z-20"
+            viewBox="0 0 100 100"
             preserveAspectRatio="none"
           >
             <motion.path
@@ -134,7 +135,13 @@ const HeroSection: React.FC = () => {
               transition={{ duration: 1 }}
             />
             <defs>
-              <linearGradient id="educationThemeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <linearGradient
+                id="educationThemeGradient"
+                x1="0%"
+                y1="0%"
+                x2="0%"
+                y2="100%"
+              >
                 <stop offset="0%" stopColor="hsl(245, 80%, 60%)" />
                 <stop offset="50%" stopColor="hsl(268, 88%, 68%)" />
                 <stop offset="100%" stopColor="hsl(290, 80%, 68%)" />
@@ -150,17 +157,15 @@ const HeroSection: React.FC = () => {
                 type="button"
                 onClick={() => setCurrentImageIndex(idx)}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  idx === currentImageIndex 
-                    ? 'w-6 bg-primary shadow-glow' 
-                    : 'w-2 bg-foreground/30 hover:bg-foreground/60'
+                  idx === currentImageIndex
+                    ? "w-6 bg-primary shadow-glow"
+                    : "w-2 bg-foreground/30 hover:bg-foreground/60"
                 }`}
               />
             ))}
           </div>
-
         </div>
       </div>
-
     </section>
   );
 };
