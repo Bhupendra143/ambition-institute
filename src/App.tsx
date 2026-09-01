@@ -3,8 +3,8 @@ import { BrowserRouter } from "react-router-dom";
 import DotBackground from "./components/DotBackground";
 import AppRoutes from "./routes/AppRoutes.route";
 import Header from "./components/Header";
-import { useTheme } from "./context/ThemeContext";
 import Footer from "./components/layout/Footer";
+import { useTheme } from "./hooks/useTheme";
 
 const App: React.FC = () => {
   const { resolvedTheme } = useTheme();
