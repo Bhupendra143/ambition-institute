@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import DotBackground from "./components/DotBackground";
 import AppRoutes from "./routes/AppRoutes.route";
+import Header from "./components/Header";
 import { useTheme } from "./context/ThemeContext";
 import Footer from "./components/layout/Footer";
 const App: React.FC = () => {
@@ -19,6 +20,10 @@ const App: React.FC = () => {
   }, [isDark]);
   return (
     <BrowserRouter>
+      <div style={{ position: "relative", minHeight: "100vh", background: "#0a0a0a" }}>
+        <Header />
+        {/* Background Layer */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
       {/* Outer Shell using theme background utility and strict overflow containment */}
       <div className="relative min-h-screen w-full bg-background text-foreground overflow-x-hidden transition-colors duration-300">
         {/* Full-width Animated Background Canvas (Dynamic theme colors) */}
