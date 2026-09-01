@@ -1,11 +1,13 @@
 import DotBackground from "./components/DotBackground";
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from "./routes/AppRoutes.route";
+import Header from "./components/Header";
 
 function App() {
   return (
     <BrowserRouter>
       <div style={{ position: "relative", minHeight: "100vh", background: "#0a0a0a" }}>
+        <Header />
         {/* Background Layer */}
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
           <DotBackground
