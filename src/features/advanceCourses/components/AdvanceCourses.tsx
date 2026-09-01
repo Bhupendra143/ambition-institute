@@ -5,7 +5,6 @@ import {
   Code2, 
   Globe, 
   ArrowRight, 
-  Sparkles, 
   CheckCircle2 
 } from 'lucide-react';
 
