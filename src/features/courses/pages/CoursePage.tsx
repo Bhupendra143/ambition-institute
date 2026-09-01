@@ -1,11 +1,5 @@
 import { useMemo, useState } from "react";
-import {
-  Search,
-  GraduationCap,
-  Users,
-  Sparkles,
-  X,
-} from "lucide-react";
+import { Search, Users, X } from "lucide-react";
 
 import CourseCard, {
   type Course,
