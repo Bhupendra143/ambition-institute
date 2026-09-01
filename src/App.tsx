@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import DotBackground from "./components/DotBackground";
 import AppRoutes from "./routes/AppRoutes.route";
 import { useTheme } from "./context/ThemeContext";
-
+import Footer from "./components/layout/Footer";
 const App: React.FC = () => {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
@@ -17,9 +17,6 @@ const App: React.FC = () => {
       root.classList.remove("dark");
     }
   }, [isDark]);
-
-import Footer from "./components/layout/Footer";
-function App() {
   return (
     <BrowserRouter>
       {/* Outer Shell using theme background utility and strict overflow containment */}
@@ -56,6 +53,4 @@ function App() {
     </BrowserRouter>
   );
 };
-
 export default App;
-

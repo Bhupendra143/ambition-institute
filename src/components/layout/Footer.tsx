@@ -370,18 +370,17 @@ export default function Footer() {
         {/* Bottom */}
         <div
           className="
-            flex
-            flex-col
-            gap-4
-            border-t
-            border-[hsl(var(--border))]
-            py-6
-            text-xs
-            text-[hsl(var(--muted-foreground))]
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          "
+    flex
+    flex-row
+    items-center
+    justify-center
+    gap-6
+    border-t
+    border-[hsl(var(--border))]
+    py-6
+    text-xs
+    text-[hsl(var(--muted-foreground))]
+  "
         >
           <p>
             © {new Date().getFullYear()} Ambition Technical Institute. All
