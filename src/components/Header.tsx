@@ -20,13 +20,10 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/", active: true, icon: <Home className="w-4 h-4 shrink-0" /> },
   {
-    label: "Courses",
-    icon: <GraduationCap className="w-4 h-4 shrink-0" />,
-    children: [
-      { label: "MDCT (Computer IT)", href: "/courses/mdct" },
-      { label: "Hardware & Networking", href: "/courses/hardware" },
-    ],
-  },
+  label: "Courses",
+  href: "/courses",
+  icon: <GraduationCap className="w-4 h-4 shrink-0" />,
+},
   { label: "About Us", href: "/about", icon: <Info className="w-4 h-4 shrink-0" /> },
   { label: "Contact", href: "/contact", icon: <Phone className="w-4 h-4 shrink-0" /> },
   {
