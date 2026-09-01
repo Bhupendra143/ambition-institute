@@ -160,26 +160,7 @@ const CoursesPage = () => {
   {/* ===== LEVEL 1 : TITLE ===== */}
   <div className="text-center">
 
-    <div
-      className="
-        mb-3
-        inline-flex
-        items-center
-        gap-2
-        rounded-full
-        border
-        border-indigo-100
-        bg-indigo-50
-        px-3
-        py-1.5
-        text-xs
-        font-semibold
-        text-indigo-600
-      "
-    >
-      <Sparkles className="h-3.5 w-3.5" />
-      Learn. Create. Grow.
-    </div>
+   
 
     <h1
       className="
@@ -216,214 +197,130 @@ const CoursesPage = () => {
 
 
   {/* ===== LEVEL 2 : STATS + SEARCH ===== */}
-  <div
-    className="
-      mx-auto
-      mt-8
-      flex
-      max-w-5xl
-      flex-col
-      items-center
-      justify-between
-      gap-5
-      rounded-2xl
-      border
-      border-slate-200/80
-      bg-white/50
-      px-5
-      py-4
-      backdrop-blur-sm
-      sm:flex-row
-    "
-  >
-
-    {/* LEFT : STATISTICS */}
-    <div className="flex items-center gap-6">
-
-      {/* Courses */}
-      <div className="flex items-center gap-2.5">
-
-        <div
-          className="
-            flex
-            h-9
-            w-9
-            items-center
-            justify-center
-            rounded-xl
-            bg-indigo-50
-          "
-        >
-          <GraduationCap className="h-4.5 w-4.5 text-indigo-600" />
-        </div>
-
-        <div className="leading-tight">
-          <p className="text-base font-bold text-slate-800">
-            15+
-          </p>
-
-          <p className="text-[11px] font-medium text-slate-800">
-            Courses
-          </p>
-        </div>
-      </div>
-
-
-      {/* Divider */}
-      <div className="h-9 w-px bg-slate-200" />
-
-
-      {/* Students */}
-      <div className="flex items-center gap-2.5">
-
-        <div
-          className="
-            flex
-            h-9
-            w-9
-            items-center
-            justify-center
-            rounded-xl
-            bg-indigo-50
-          "
-        >
-          <Users className="h-4 w-4 text-indigo-600" />
-        </div>
-
-        <div className="leading-tight">
-          <p className="text-base font-bold text-slate-800">
-            1.2K+
-          </p>
-
-          <p className="text-[11px] font-medium text-slate-800">
-            Students Trained
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-
-    {/* RIGHT : SEARCH */}
-    <div className="group relative">
-
-      <Search
-        className="
-          pointer-events-none
-          absolute
-          left-3.5
-          top-1/2
-          h-4
-          w-4
-          -translate-y-1/2
-          text-slate-400
-          transition-colors
-          duration-200
-          group-focus-within:text-indigo-500
-        "
-      />
-
-      <input
-        type="text"
-        value={search}
-        onChange={(event) =>
-          setSearch(event.target.value)
-        }
-        placeholder="Search courses..."
-        className="
-          h-10
-          w-48
-          rounded-xl
-          border
-          border-slate-200
-          bg-white
-          pl-10
-          pr-9
-          text-xs
-          text-slate-800
-          shadow-sm
-          outline-none
-          transition-all
-          duration-300
-          placeholder:text-slate-400
-
-          hover:w-52
-          hover:border-slate-300
-
-          focus:w-64
-          focus:border-indigo-400
-          focus:ring-4
-          focus:ring-indigo-100
-        "
-      />
-
-      {search && (
-        <button
-          type="button"
-          onClick={() => setSearch("")}
-          className="
-            absolute
-            right-2.5
-            top-1/2
-            flex
-            h-6
-            w-6
-            -translate-y-1/2
-            items-center
-            justify-center
-            rounded-full
-            text-slate-400
-            transition
-            hover:bg-slate-100
-            hover:text-slate-700
-          "
-          aria-label="Clear search"
-        >
-          <X className="h-3.5 w-3.5" />
-        </button>
-      )}
-
-    </div>
-
-  </div>
+ 
 
 </section>
 
         {/* ================= FILTERS ================= */}
         <section className="mb-8">
-          <div className="flex flex-wrap items-center justify-start gap-2 border-b border-slate-200/80 pb-5">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200/80 pb-5">
 
-            {categories.map((category) => {
-              const active =
-                activeCategory === category;
+            <div className="flex flex-wrap items-center gap-2">
+              {categories.map((category) => {
+                const active =
+                  activeCategory === category;
 
-              return (
-                <button
-                  key={category}
-                  type="button"
-                  onClick={() =>
-                    setActiveCategory(category)
-                  }
-                  className={`
-                    rounded-full
-                    px-4
-                    py-2
-                    text-xs
-                    font-semibold
-                    transition-all
-                    duration-200
-                    ${
-                      active
-                        ? "bg-indigo-600 text-white shadow-sm shadow-indigo-200"
-                        : "border border-slate-200 bg-white/80 text-slate-500 hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-600"
+                return (
+                  <button
+                    key={category}
+                    type="button"
+                    onClick={() =>
+                      setActiveCategory(category)
                     }
-                  `}
+                    className={`
+                      rounded-full
+                      px-4
+                      py-2
+                      text-xs
+                      font-semibold
+                      transition-all
+                      duration-200
+                      ${
+                        active
+                          ? "bg-indigo-600 text-white shadow-sm shadow-indigo-200"
+                          : "border border-slate-200 bg-white/80 text-slate-500 hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-600"
+                      }
+                    `}
+                  >
+                    {category}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* SEARCH */}
+            <div className="group relative">
+
+              <Search
+                className="
+                  pointer-events-none
+                  absolute
+                  left-3.5
+                  top-1/2
+                  h-4
+                  w-4
+                  -translate-y-1/2
+                  text-slate-400
+                  transition-colors
+                  duration-200
+                  group-focus-within:text-indigo-500
+                "
+              />
+
+              <input
+                type="text"
+                value={search}
+                onChange={(event) =>
+                  setSearch(event.target.value)
+                }
+                placeholder="Search courses..."
+                className="
+                  h-10
+                  w-48
+                  rounded-xl
+                  border
+                  border-slate-200
+                  bg-white
+                  pl-10
+                  pr-9
+                  text-xs
+                  text-slate-800
+                  shadow-sm
+                  outline-none
+                  transition-all
+                  duration-300
+                  placeholder:text-slate-400
+
+                  hover:w-52
+                  hover:border-slate-300
+
+                  focus:w-64
+                  focus:border-indigo-400
+                  focus:ring-4
+                  focus:ring-indigo-100
+                "
+              />
+
+              {search && (
+                <button
+                  type="button"
+                  onClick={() => setSearch("")}
+                  className="
+                    absolute
+                    right-2.5
+                    top-1/2
+                    flex
+                    h-6
+                    w-6
+                    -translate-y-1/2
+                    items-center
+                    justify-center
+                    rounded-full
+                    text-slate-400
+                    transition
+                    hover:bg-slate-100
+                    hover:text-slate-700
+                  "
+                  aria-label="Clear search"
                 >
-                  {category}
+                  <X className="h-3.5 w-3.5" />
                 </button>
-              );
-            })}
+              )}
+
+            </div>
+
           </div>
+          
         </section>
 
         {/* ================= RESULT COUNT ================= */}
@@ -456,7 +353,9 @@ const CoursesPage = () => {
               <X className="h-3.5 w-3.5" />
               Clear filters
             </button>
+            
           )}
+          
         </section>
 
         {/* ================= COURSE GRID ================= */}
@@ -499,6 +398,8 @@ const CoursesPage = () => {
               Clear Search
             </button>
           </div>
+          
+
         )}
 
         {/* ================= FOOTER NOTE ================= */}
