@@ -1,53 +1,61 @@
+import React, { useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
 import DotBackground from "./components/DotBackground";
-import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from "./routes/AppRoutes.route";
+import { useTheme } from "./context/ThemeContext";
+
+const App: React.FC = () => {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
+  // Sync the 'dark' class onto the root <html> tag for index.css variables to activate
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  }, [isDark]);
+
 import Footer from "./components/layout/Footer";
 function App() {
   return (
     <BrowserRouter>
-      <div style={{ position: "relative", minHeight: "100vh", background: "#0a0a0a" }}>
-        {/* Background Layer */}
-        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+      {/* Outer Shell using theme background utility and strict overflow containment */}
+      <div className="relative min-h-screen w-full bg-background text-foreground overflow-x-hidden transition-colors duration-300">
+        {/* Full-width Animated Background Canvas (Dynamic theme colors) */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <DotBackground
             mode="drift"
             tracking="global"
             interaction="repel"
-            background="#0a0a0a"
-            dotColor="#ffffff"
-            lineColor="#666666"
-            density={1.2}
-            speed={0.8}
-            dotSize={2}
-            linkDistance={140}
-            opacity={1}
-            alpha={1.4}
-            interactionRadius={140}
-            interactionStrength={18}
+            background={isDark ? "#0a0a0a" : "#ffffff"}
+            dotColor={isDark ? "#ffffff" : "#000000"}
+            lineColor={
+              isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(0, 0, 0, 0.08)"
+            }
+            density={1.2} 
+            speed={1.2}
+            dotSize={1.5} 
+            linkDistance={120} 
+            opacity={0.6} 
+            alpha={1.2}
+            interactionRadius={120}
+            interactionStrength={15}
             cursorEase={40}
           />
         </div>
 
-        {/* Dynamic Route Content */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1,
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#ffffff",
-            textAlign: "center",
-            padding: "0 24px",
-          }}
-        >
+        {/* Primary Page Layout Container */}
+        <div className="relative z-10 min-h-screen w-full max-w-7xl mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8 py-10 box-border">
           <AppRoutes />
         </div>
         <Footer />
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
+
