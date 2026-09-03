@@ -1,4 +1,5 @@
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import logo from "../../assets/ambition-logo.png";
 const footerLinks = {
   institute: [
     { label: "About ATI", href: "/about" },
@@ -109,7 +110,8 @@ export default function Footer() {
                 hover:-translate-y-0.5
               "
             >
-              <div
+              <img src={logo} alt="Ambition Logo" className="h-11 w-11" />
+              {/* <div
                 className="
                   flex
                   h-11
@@ -124,7 +126,7 @@ export default function Footer() {
                 "
               >
                 ATI
-              </div>
+              </div> */}
 
               <div>
                 <div className="font-bold tracking-tight">Ambition</div>
