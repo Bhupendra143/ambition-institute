@@ -77,18 +77,15 @@ export const Header: React.FC = () => {
         <div className="px-2 sm:px-4 py-2 flex items-center justify-between min-h-16 gap-4">
           
           {/* ====== Brightened Logo + Purple ATI Text ====== */}
-          <div className="flex items-center shrink-0">
-            <Link to="/" className="group flex items-center gap-3 focus:outline-none py-1">
-              <img
-                src={logo}
-                alt="Ambition Technical Institute Logo"
-                className="w-auto h-12 sm:h-16 object-contain filter brightness-125 contrast-125 drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] transition-all duration-300 ease-out group-hover:scale-105 group-hover:brightness-150 block"
-              />
-              <span className="text-2xl sm:text-3xl font-black tracking-wider text-[#9d72ff] drop-shadow-[0_0_10px_rgba(157,114,255,0.3)] transition-all duration-300 group-hover:scale-105 select-none">
-                ATI
-              </span>
-            </Link>
-          </div>
+        <div className="flex items-center shrink-0">
+  <Link to="/" className="group flex items-center focus:outline-none py-1">
+    <img
+      src={logo}
+      alt="Ambition Technical Institute Logo"
+      className="h-12 sm:h-16 w-auto object-contain transition-transform duration-300 ease-out group-hover:scale-105"
+    />
+  </Link>
+</div>
 
           {/* ====== Navigation Capsule ====== */}
           <div className="hidden md:flex items-center justify-center flex-1">
